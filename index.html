@@ -1,1 +1,52 @@
-<div id="app"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Phone Book</title>
+
+</head>
+<body>
+<div class="container mt-4">
+
+    <h1 class="display-4">
+        <i class="fas fa-book-open"></i><span class="text-primary">Phone</span>Book
+    </h1>
+
+    <form  id="phonebook-form" >
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" pattern="[a-zA-Z ]+" oninvalid="setCustomValidity('Please Enter Only Alphabets')" class="form-control" id="name" oninput="UI.changetext(this.value,this.id);try{setCustomValidity('')}catch(e){}">
+            <div id="namediv"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="contactno">Contact No</label>
+            <input type="text" pattern="[0-9]{10}"  oninvalid="setCustomValidity('Please Enter 10 digit Number')" class="form-control" oninput="UI.changetext(this.value,this.id);try{setCustomValidity('')}catch(e){}" id="contactno">
+            <div id="contactdiv"></div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Add Contact" class="btn btn-primary btn-block">
+        </div>
+    </form>
+
+    <table class="table table-striped mt-5">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone No</th>
+        </tr>
+        </thead>
+        <tbody id="contact-list">
+
+        </tbody>
+    </table>
+</div>
+
+</body>
+<script src="index.js"></script>
+</html>
